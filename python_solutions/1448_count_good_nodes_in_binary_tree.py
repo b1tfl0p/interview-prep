@@ -24,7 +24,7 @@ class Solution:
         return count
 
 
-@pytest.mark.parameterize(
+@pytest.mark.parametrize(
     "input, answer",
     [
         ([1], 1),
