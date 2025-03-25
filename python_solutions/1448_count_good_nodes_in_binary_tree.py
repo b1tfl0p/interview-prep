@@ -1,27 +1,55 @@
+from collections import deque
 import pytest
 
 from helpers.tree_builder import build_binary_tree, TreeNode
 
 
-class Solution:
-    def helper(self, node: TreeNode, max_parent: int) -> int:
-        count = 0
-        if node.val >= max_parent:
-            count += 1
-        max_parent = max(node.val, max_parent)
-        if node.left:
-            count += self.helper(node.left, max_parent)
-        if node.right:
-            count += self.helper(node.right, max_parent)
-        return count
+class BfsSolution:
+    """
+    T: O(n)
+    S: O(n)
+    """
 
     def goodNodes(self, root: TreeNode) -> int:
-        count = 1
-        if root.left:
-            count += self.helper(root.left, root.val)
-        if root.right:
-            count += self.helper(root.right, root.val)
-        return count
+        res = 0
+        q = deque()
+
+        q.append((root, float("-inf")))
+
+        while q:
+            node, max_val = q.popleft()
+            if node.val >= max_val:
+                res += 1
+
+            if node.left:
+                q.append((node.left, max(max_val, node.val)))
+
+            if node.right:
+                q.append((node.right, max(max_val, node.val)))
+
+        return res
+
+
+class DfsSolution:
+    """
+    T: O(n)
+    S: O(n)
+    """
+
+    def goodNodes(self, root: TreeNode) -> int:
+        def dfs(node: TreeNode | None, max_val: int) -> int:
+            if not node:
+                return 0
+
+            if node.val >= max_val:
+                count = 1
+                max_val = node.val
+            else:
+                count = 0
+
+            return count + dfs(node.left, max_val) + dfs(node.right, max_val)
+
+        return dfs(root, root.val)
 
 
 @pytest.mark.parametrize(
@@ -33,4 +61,5 @@ class Solution:
 )
 def test_solution(input: list[int | None], answer: int):
     root: TreeNode = build_binary_tree(input)
-    assert Solution().goodNodes(root) == answer
+    assert DfsSolution().goodNodes(root) == answer
+    assert BfsSolution().goodNodes(root) == answer
