@@ -1,5 +1,5 @@
 import pytest
-from helpers.tree_builder import TreeNode, build_binary_tree
+from helpers.binary_tree import TreeNode, build_binary_tree
 
 
 class Solution:

@@ -1,7 +1,7 @@
 from collections import deque
 import pytest
 
-from helpers.tree_builder import build_binary_tree, TreeNode
+from helpers.binary_tree import build_binary_tree, TreeNode
 
 
 class BfsSolution:
