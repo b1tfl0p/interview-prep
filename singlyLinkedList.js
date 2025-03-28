@@ -12,6 +12,8 @@ class LinkedList {
 
 
   constructor() {
+    // Initialize the list with a 'dummy' node, which makes
+    // removing a node from the beginning of list easier.
     this.#head = new ListNode(-1);
     this.#tail = this.#head;
   }
@@ -69,10 +71,10 @@ class LinkedList {
       curr = curr.next;
     }
 
-    // Remove the node ahead of curr:
+    // Remove the node after curr:
     if (curr && curr.next) {
-      if (curr.next === this.tail) {
-        this.tail = curr;
+      if (curr.next === this.#tail) {
+        this.#tail = curr;
       }
       curr.next = curr.next.next;
       return true;
