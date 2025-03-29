@@ -8,7 +8,7 @@ class ListNode:
         self.next = next
 
 
-def linked_list_builder(vals: list[int]) -> ListNode | None:
+def build_linked_list(vals: list[int]) -> ListNode | None:
     if not vals:
         return None
 
