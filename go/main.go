@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"interview-prep/go-solutions/solutions"
+	"interview-prep/go/solutions"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-package binary_search
+package solutions
 
 func findMin(nums []int) int {
 	var (

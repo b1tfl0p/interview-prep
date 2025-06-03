@@ -1,12 +1,12 @@
 package solutions
 
-import . "interview-prep/go-solutions/helpers"
+import "interview-prep/go/helpers"
 
-func InvertTreeIter(root *TreeNode) *TreeNode {
+func InvertTreeIter(root *helpers.TreeNode) *helpers.TreeNode {
 	if root == nil {
 		return nil
 	}
-	arr := []*TreeNode{root}
+	arr := []*helpers.TreeNode{root}
 
 	for len(arr) > 0 {
 		top := arr[len(arr)-1]
