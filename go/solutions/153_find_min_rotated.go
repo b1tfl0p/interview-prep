@@ -1,6 +1,6 @@
 package solutions
 
-func findMin(nums []int) int {
+func FindMin(nums []int) int {
 	var (
 		l = 0
 		r = len(nums)

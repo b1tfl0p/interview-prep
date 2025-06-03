@@ -1,6 +1,6 @@
 package solutions
 
-import "interview-prep/go/helpers"
+import "github.com/b1tfl0p/interview-prep/go/helpers"
 
 func BuildTree(preorder []int, inorder []int) *helpers.TreeNode {
 	inorderMap := make(map[int]int)
